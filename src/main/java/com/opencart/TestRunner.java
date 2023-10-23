@@ -1,6 +1,7 @@
 package com.opencart;
 
 import com.opencart.managers.DriverManager;
+import com.opencart.managers.RandomDataManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,7 +15,7 @@ public class TestRunner {
 
         driver.switchTo().newWindow(WindowType.TAB);
         driver.get("https://opencart.antropy.co.uk/");
-        Thread.sleep(5000);
+//        Thread.sleep(5000);
 
         WebElement myAccountIcon = driver.findElement(By.xpath("//i[@class='fa fa-user']"));
         myAccountIcon.click();
@@ -25,30 +26,46 @@ public class TestRunner {
         System.out.println(driver.getCurrentUrl());
 
         WebElement firstNameInput = driver.findElement(By.id("input-firstname"));
+        String firstName = RandomDataManager.generateFirstName();
+        firstNameInput.sendKeys(firstName);
+        System.out.println(firstName);
 
         WebElement lastNameInput = driver.findElement(By.cssSelector("#input-lastname"));
+        String lastName = RandomDataManager.generateLastName();
+        lastNameInput.sendKeys(lastName);
+        System.out.println(lastName);
 
         WebElement emailInput = driver.findElement(By.cssSelector("#input-email"));
+        String randomEmail = RandomDataManager.generateRandomEmail();
+        emailInput.sendKeys(randomEmail);
+        System.out.println(randomEmail);
 
         WebElement phoneInput = driver.findElement(By.cssSelector("#input-telephone"));
+        phoneInput.sendKeys(RandomDataManager.generatePhoneNumber());
 
         WebElement passwordInput = driver.findElement(By.cssSelector("#input-password"));
+        String password = RandomDataManager.generatePassword();
+        passwordInput.sendKeys(password);
 
         WebElement confirmPasswordInput = driver.findElement(By.cssSelector("#input-confirm"));
+        confirmPasswordInput.sendKeys(password);
+        System.out.println(password);
 
-        WebElement privacyInput = driver.findElement(By.cssSelector("input[value='1'][name='agree']"));
+        WebElement termsAndConditionCheckBox = driver.findElement(By.xpath("//input[@name='agree']"));
+        termsAndConditionCheckBox.click();
 
-        Thread.sleep(3000);
+        WebElement registerBtn = driver.findElement(By.xpath("//input[@value='Continue']"));
+        registerBtn.click();
+        Thread.sleep(10000);
 
         System.out.println(driver.getTitle());
         driver.close();
 
-        driver.switchTo().window(currentTabName);
-        driver.get("https://tekwill.md/");
-        Thread.sleep(1000);
-        System.out.println(driver.getTitle());
+//        driver.switchTo().window(currentTabName);
+//        driver.get("https://tekwill.md/");
+//        Thread.sleep(1000);
+//        System.out.println(driver.getTitle());
         driver.quit();
-
         System.out.println("The execution is over");
         }
     }
