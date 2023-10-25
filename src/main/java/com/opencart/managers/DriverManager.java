@@ -55,6 +55,7 @@ public class DriverManager {
     public void tearDown() {
         driver.close();
         driver.quit();
+        instance = null;
         driver = null;
     }
 
