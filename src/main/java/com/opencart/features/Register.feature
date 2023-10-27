@@ -1,7 +1,7 @@
 Feature: Register Flow Test Suite
 
   Scenario: Register Page can be accessed from Home Page
-    Given "string" endpoint is accessed
+    Given HomePage is displayed
     When registerLink from Header menu is clicked
     Then the current url contains "route=account/register" keyword
 
