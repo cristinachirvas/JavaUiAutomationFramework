@@ -1,4 +1,4 @@
-@run
+
 Feature: Register Flow Test Suite
 
   Background:
@@ -33,7 +33,6 @@ Feature: Register Flow Test Suite
 #      | First Name must be between 1 and 32 characters! |
 #      | First Name must be between 1 and 32 characters! |
 
-  @run
   Scenario Outline: An error message is displayed when invalid <impacted attribute> is used for register flow
     When the register form is populated with the following data:
       | firstName | <firstName>    |
