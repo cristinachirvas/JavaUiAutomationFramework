@@ -9,7 +9,7 @@ Feature: Login Related Test Cases
     Then the following list of error messages is displayed:
       | Warning: No match for E-Mail Address and/or Password. |
     Examples:
-      | email                      | password       | affectedAttribute |
-      | cristina.chirvas@gmail.com | cristina.chirvas@gmail.com | password          |
-      | cristina.ch@gmail.com      | The Password1  | password          |
+      | email                      | password         | affectedAttribute |
+      | cristina.chirvas@gmail.com | The Password1123 | password          |
+      | cristina.ch@gmail.com      | The Password1    | password          |
 

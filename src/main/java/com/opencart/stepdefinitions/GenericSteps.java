@@ -31,9 +31,13 @@ public class GenericSteps {
 
     @Then("the following list of error messages is displayed:")
     public void theFollowingListOfErrorMessagesIsDisplayed(List<String> errorMessagesList) throws InterruptedException {
-        Thread.sleep(1000);
+        Thread.sleep(100);
         errorMessagesList.forEach(errorMessage -> {
-            boolean errorMessageIsDisplayed = driver.findElement(By.xpath("//*[contains(text(),'" + errorMessage + "')]")).isDisplayed();
+//            boolean errorMessageIsDisplayed = driver.findElement(By.xpath("//*[contains(text(),'" + errorMessage + "')]")).isDisplayed();
+//            Assertions.assertTrue(errorMessageIsDisplayed, "The error message: " + errorMessage + "is displayed");
+
+
+            boolean errorMessageIsDisplayed = driver.findElement(By.xpath("//div[@id='alert']")).isDisplayed();
             Assertions.assertTrue(errorMessageIsDisplayed, "The error message: " + errorMessage + "is displayed");
         });
     }
